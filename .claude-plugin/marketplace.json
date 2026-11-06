@@ -1,0 +1,24 @@
+{
+  "name": "astudio-marketplace-support",
+  "owner": {
+    "name": "astudio.one",
+    "url": "https://astudio.one"
+  },
+  "metadata": {
+    "description": "astudio-marketplace-support by astudio.one",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "astudio-marketplace-support",
+      "source": "./",
+      "description": "astudio customer support for Wildberries and Ozon sellers: answers to reviews, buyer questions and chats in the brand's voice, returns and claims under Russian consumer law (2026 rules), compliance checks before publishing, escalation to a human, and recurring-issue insights for product cards. English and Russian.",
+      "version": "1.0.0",
+      "author": {
+        "name": "astudio.one",
+        "url": "https://astudio.one"
+      },
+      "homepage": "https://github.com/whoamnesia/astudio-marketplace-support"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-11-06",
+  "warning": "Platform limits and laws change. Re-check items older than 6 months on dev.wildberries.ru, docs.ozon.ru and consultant.ru before relying on them.",
+  "platforms": {
+    "wb": {
+      "review_answer": {"min": 2, "max": 5000, "edit": "once within 60 days", "archive_if_unanswered_days": 30},
+      "question_answer": {"edit": "once within 60 days"},
+      "chat_message": {"max": 1000, "needs": "replySign from GET /api/v1/seller/chats", "files": "JPEG/PDF/PNG, 5 MB each, 30 MB total"},
+      "claims": {"window_days": 14, "actions": ["approve1", "approve2", "autorefund1", "reject1", "reject2", "reject3", "rejectcustom"], "custom_comment": [10, 1000]},
+      "complaint_on_review": {"max": 1000, "times": "once per review"},
+      "rate_limit": "1 request/second shared by all Feedbacks and Questions methods per seller; >3 rps blocks for 60 s; 409 counts as 5 requests",
+      "token": "valid 180 days; separate categories: Feedbacks and Questions, Buyers Chat, Buyers Returns; can be read-only",
+      "hosts": {"feedbacks": "https://feedbacks-api.wildberries.ru", "chat": "https://buyer-chat-api.wildberries.ru", "returns": "https://returns-api.wildberries.ru"},
+      "source": "https://dev.wildberries.ru/openapi/user-communication (checked via the dev.wildberries.by mirror)"
+    },
+    "ozon": {
+      "review_answer": {"edit": "no edit method: delete and create again", "subscription": "«Управление отзывами» or Premium Pro (403 otherwise)", "api": "/v2/review/list, /v2/review/info, /v1/review/comment/create (v1 review list is deprecated)"},
+      "question_answer": {"min": 2, "max": 3000, "needs": "sku", "subscription": "Premium Plus"},
+      "chat_message": {"min": 1, "max": 1000, "subscription": "Premium Plus or Premium Pro", "window": "FBO: within 48 h of the buyer's last message; FBS/rFBS: after payment and within 72 h after delivery, then replies only within 48 h"},
+      "returns": "/v1/returns/list (FBO and FBS), rFBS: /v2/returns/rfbs/list|get, /v1/returns/rfbs/action/set",
+      "rate_limit": "50 requests/second per Client-Id unless a method sets its own; honour Retry-After on 429",
+      "source": "Ozon Seller OpenAPI (docs.ozon.ru/api/seller), snapshot 2026-10-18"
+    }
+  },
+  "forbidden_in_public_answers": [
+    "phone numbers, e-mails, messenger handles, links (except the platform's own pages)",
+    "naming other marketplaces or inviting to buy elsewhere",
+    "asking to change, delete or raise a rating; rewards for reviews",
+    "promising refunds, compensation, delivery dates or returns that the platform or a human has not confirmed",
+    "insults, sarcasm, blaming the buyer, veiled threats",
+    "the buyer's personal data or order details",
+    "medical or cure claims, guaranteed results, dosage advice",
+    "product facts given from memory: only from the card, documents or the brand fact sheet",
+    "blaming the marketplace warehouse or delivery service in public"
+  ],
+  "law": {
+    "remote_refusal": "ЗоЗПП ст. 26.1 п. 4: before delivery and within 7 days after it; 3 months if written return information was not given at delivery; refund within 10 days of the demand, minus the seller's return shipping costs; not for individually defined goods",
+    "return_method": "КС РФ Постановление 7-П от 17.02.2026: until the law is amended the buyer may return remotely bought goods by any method that lets the seller inspect them on receipt; the buyer bears transit risk and costs",
+    "defects": "ЗоЗПП ст. 18: replacement, price reduction, repair, refund; technically complex goods: refund/replacement within 15 days of transfer, later only for a substantial defect, missed repair deadline, or >30 days unusable per warranty year",
+    "deadlines": "ст. 22: price reduction / refund / repair costs within 10 days of the demand; ст. 20: repair within the agreed term, max 45 days; ст. 21: replacement within 7 days (20 if a check is needed)",
+    "exchange": "ст. 25: proper-quality non-food goods exchanged within 14 days not counting the purchase day, if unused with tags and receipt; refund within 3 days if no analogue",
+    "rules_of_sale": "Постановление Правительства № 657 от 30.05.2026, in force from 01.09.2026 (replaced № 2463): non-exchangeable list, remote-sale exclusions (п. 30), packaging and completeness for remote returns (п. 44), covers aggregator owners",
+    "technically_complex_list": "Постановление Правительства № 924 от 10.11.2011 (status after 01.09.2026 to be re-checked)"
+  }
+}
