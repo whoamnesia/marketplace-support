@@ -17,7 +17,7 @@
     "russia"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/whoamnesia/astudio-marketplace-support",
-  "repository": "https://github.com/whoamnesia/astudio-marketplace-support",
+  "homepage": "https://github.com/whoamnesia/marketplace-support",
+  "repository": "https://github.com/whoamnesia/marketplace-support",
   "icon": "./.claude-plugin/icon.png"
 }

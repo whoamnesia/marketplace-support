@@ -21,7 +21,7 @@ A plugin that runs a seller's customer care on Wildberries and Ozon the way a ca
 In Claude Code:
 
 ```
-/plugin marketplace add whoamnesia/astudio-marketplace-support
+/plugin marketplace add whoamnesia/marketplace-support
 /plugin install astudio-marketplace-support@astudio-marketplace-support
 ```
 
